@@ -1,4 +1,9 @@
 ﻿using System;
+using System.Collections.Generic;
+using System.Data;
+using System.Data.SqlClient;
+using Bookish.DataAccess;
+using Dapper;
 
 namespace Bookish
 {
@@ -6,7 +11,12 @@ namespace Bookish
     {
         static void Main(string[] args)
         {
-            Console.WriteLine("Hello World!");
+            var writer = new ConsoleWriter();
+            
+            Console.WriteLine("List of all books in database:");
+            Console.WriteLine("");
+            
+            writer.PrintAllBooks();
         }
     }
 }
