@@ -15,6 +15,9 @@ namespace Bookish
             
             Console.WriteLine("List of all books in database:");
             Console.WriteLine("");
+
+            var us = new UserManagement();
+            us.CreateAccount("Bill","Gates","billgates@gmail.com","password");
             
             writer.PrintAllBooks();
         }

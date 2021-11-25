@@ -33,7 +33,13 @@ namespace Bookish.DataAccess
             string SqlString = "SELECT * FROM [Authors]";
             return (List<AuthorBook>) db.Query<AuthorBook>(SqlString);
         }
-        
-        
+
+        public void CreateAccount(string firstName, string lastName, string email, string password)
+        {
+            string SqlString = $"INSERT INTO Users (FirstName,LastName,email,password) VALUES ('{firstName}', '{lastName}','{email}','{password}')";
+            db.Execute(SqlString);
+        }
+
+
     }
 }
