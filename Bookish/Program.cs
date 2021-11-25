@@ -13,13 +13,17 @@ namespace Bookish
         {
             var writer = new ConsoleWriter();
             
+            writer.WelcomeAndLogin();
+            
             Console.WriteLine("List of all books in database:");
             Console.WriteLine("");
-
-            var us = new UserManagement();
-            us.CreateAccount("Bill","Gates","billgates@gmail.com","password");
-            
             writer.PrintAllBooks();
+            
+            
+            //var us = new UserManagement();
+            //us.CreateAccount("Bill","Gates","billgates@gmail.com","password");
+            
+            
         }
     }
 }

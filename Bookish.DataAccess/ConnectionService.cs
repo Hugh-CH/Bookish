@@ -1,6 +1,7 @@
 ﻿using System.Collections.Generic;
 using System.Data;
 using System.Data.SqlClient;
+using System.Linq;
 using System.Runtime.InteropServices;
 using Dapper;
 
@@ -38,6 +39,25 @@ namespace Bookish.DataAccess
         {
             string SqlString = $"INSERT INTO Users (FirstName,LastName,email,password) VALUES ('{firstName}', '{lastName}','{email}','{password}')";
             db.Execute(SqlString);
+        }
+
+        public bool CheckEmailExists(string email)
+        {
+            string SqlString = $"SElECT email FROM Users WHERE email = '{email}'";
+            
+            
+            var response = db.Query<string>(SqlString);
+
+            return response.ToList().Count != 0;
+        }
+        
+        public bool CheckPassword(string email,string password)
+        {
+            string SqlString = $"SElECT email FROM Users WHERE email = '{email}' and password = '{password}'";
+            
+            var response = db.Query<string>(SqlString);
+
+            return response.ToList().Count != 0;
         }
 
 
